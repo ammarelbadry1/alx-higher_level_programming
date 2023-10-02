@@ -1,0 +1,6 @@
+run-py.bash
+git-push.bash
+style-python.bash
+test.py
+main.py
+tmp/
