@@ -4,3 +4,4 @@ style-python.bash
 test.py
 main.py
 tmp/
+__pycache__
