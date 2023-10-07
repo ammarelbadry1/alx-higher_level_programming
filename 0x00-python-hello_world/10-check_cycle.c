@@ -11,8 +11,13 @@ int check_cycle(listint_t *list)
 {
 	listint_t *current1, *current2;
 
+	if (list == NULL)
+		return (0);
 	current1 = list;
-	current2 = list->next->next;
+	if (list->next == NULL)
+		current2 = list->next;
+	else
+		current2 = list->next->next;
 	while ((current1 != NULL) & (current2 != NULL))
 	{
 		if (current1 == current2)
