@@ -1,6 +1,6 @@
 run-py.bash
 git-push.bash
-style-python.bash
+.vscode
 test.py
 main.py
 tmp/
