@@ -3,5 +3,4 @@ git-push.bash
 .vscode
 test.py
 main.py
-tmp/
 __pycache__

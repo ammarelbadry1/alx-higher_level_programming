@@ -1,0 +1,104 @@
+#include "main.h"
+
+/**
+ * main - Entry point of the program
+ *
+ * Return: Always 0
+*/
+int main(void)
+{
+	node *head;
+
+	head = malloc(sizeof(node));
+	head->data = 45;
+	head->link = NULL;
+
+	print_list(head);
+	printf("=========================\n");
+	add_at_end(head, 87);
+	head = add_at_beginning(head, 432);
+	print_list(head);
+	free_list(head);
+	head = NULL;
+	return (0);
+}
+
+/**
+ * add_at_end - insert new node at the end of a linked list
+ *
+ * @head: the address of the first node in the list
+ * @data: the data to be inserted
+ *
+ * Return: no return
+*/
+void add_at_end(node *head, int data)
+{
+	node *current, *new_node;
+
+	new_node = malloc(sizeof(node));
+	new_node->data = data;
+	new_node->link = NULL;
+	current = head;
+	while (current->link != NULL)
+	{
+		current = current->link;
+	}
+	current->link = new_node;
+}
+
+/**
+ * add_at_beginning - insert new node at the beginning of a linked list
+ *
+ * @head: the address of the first node in the list
+ * @data: the data to be inserted
+ *
+ * Return: no return
+*/
+node *add_at_beginning(node *head, int data)
+{
+	node *new_node;
+
+	new_node = (node *)malloc(sizeof(node));
+	new_node->data = data;
+	new_node->link = head;
+	return (new_node);
+}
+
+/**
+ * print_list - linked list traversal
+ *
+ * @head: the address of the first node in the list
+ *
+ * Return: no return
+*/
+void print_list(node *head)
+{
+	node *current;
+	int count = 1;
+
+	current = head;
+	while (current != NULL)
+	{
+		printf("%d => %d\n", count, current->data);
+		current = current->link;
+	}
+}
+
+/**
+ * free_list - frees the memory allocated to a linked list
+ *
+ * @head: the address of the first node in the list
+ *
+ * Return: no return
+*/
+void free_list(node *head)
+{
+	node *current;
+
+	while (head != NULL)
+	{
+		current = head;
+		head = head->link;
+		free(current);
+	}
+}
