@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def insert_zeros(_tuple):
     if (len(_tuple) == 1):
         _tuple = _tuple[0], 0
