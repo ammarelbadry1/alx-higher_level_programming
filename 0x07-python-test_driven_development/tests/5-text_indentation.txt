@@ -1,0 +1,36 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> text_indentation("How do you feel? He said: I feel happy.")
+How do you feel?
+<BLANKLINE>
+He said:
+<BLANKLINE>
+I feel happy.
+<BLANKLINE>
+>>> text_indentation("How do you feel?      He said:     I feel happy.")
+How do you feel?
+<BLANKLINE>
+He said:
+<BLANKLINE>
+I feel happy.
+<BLANKLINE>
+>>> text_indentation("     How do you feel?      He said:     I feel happy.     ")
+How do you feel?
+<BLANKLINE>
+He said:
+<BLANKLINE>
+I feel happy.
+<BLANKLINE>
+>>> text_indentation("How do you feel? He said: I feel happy. And I said: Oh, That's good!")
+How do you feel?
+<BLANKLINE>
+He said:
+<BLANKLINE>
+I feel happy.
+<BLANKLINE>
+And I said:
+<BLANKLINE>
+Oh, That's good!
+>>> text_indentation(98)
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string

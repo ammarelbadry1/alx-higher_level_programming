@@ -1,18 +1,49 @@
 #!/usr/bin/python3
-"""Module to find the max integer in a list
+"""Unittest for max_integer([..])
 """
+import unittest
+max_integer = __import__('6-max_integer').max_integer
 
 
-def max_integer(list=[]):
-    """Function to find and return the max integer in a list of integers
-        If the list is empty, the function returns None
-    """
-    if len(list) == 0:
-        return None
-    result = list[0]
-    i = 1
-    while i < len(list):
-        if list[i] > result:
-            result = list[i]
-        i += 1
-    return result
+class TestMaxInteger(unittest.TestCase):
+    """Represent max_integer test suite."""
+
+    def test_empty(self):
+        """Test empty list."""
+        self.assertEqual(max_integer([]), None)
+
+    def test_one_element(self):
+        """Test a list with one element."""
+        self.assertEqual(max_integer([1]), 1)
+
+    def test_two_max(self):
+        """Test a list with repeated elements."""
+        self.assertEqual(max_integer([1, 2, 2, 3, 4, 4]), 4)
+
+    def test_all_integers(self):
+        """Test a list with different elements and same types."""
+        self.assertEqual(max_integer([1, 2, 3, 4]), 4)
+
+    def test_integers_floats(self):
+        """Test a list with integers and floats."""
+        self.assertEqual(max_integer([1, 2, 3.3, 4]), 4)
+        self.assertEqual(max_integer([1, 2, 3, 4.2]), 4.2)
+
+    def test_wrong_type(self):
+        """Test a list with different elements and different types."""
+        with self.assertRaises(TypeError):
+            max_integer([1, "s", 2.3])
+        with self.assertRaises(TypeError):
+            max_integer([1, [1], 2.3])
+
+    def test_wrong_input(self):
+        """Test wrong input to the function."""
+        with self.assertRaises(TypeError):
+            max_integer(1)
+        with self.assertRaises(KeyError):
+            max_integer({1: 1})
+
+    def test_different_valid_input(self):
+        """Test string and tuple input to the function."""
+        self.assertEqual(max_integer("123abc"), "c")
+        self.assertEqual(max_integer((1, 2, 3, 4)), 4)
