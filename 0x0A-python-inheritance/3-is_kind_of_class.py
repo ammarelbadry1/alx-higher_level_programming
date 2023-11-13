@@ -1,4 +1,4 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 """3-is_kind_of_class Module
 
 This module contains a function returns True if the object is an instance of,
