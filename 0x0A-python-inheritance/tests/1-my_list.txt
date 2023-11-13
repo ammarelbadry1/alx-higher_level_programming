@@ -81,6 +81,7 @@ case 6: same number
 -------------------------------------------
 
 case 7: parent object
+
 >>> my_list = [1, 2, 3]
 >>> my_list.print_sorted()
 Traceback (most recent call last):
