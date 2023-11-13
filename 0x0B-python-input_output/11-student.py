@@ -50,6 +50,4 @@ class Student:
             self.last_name = json["last_name"]
             self.age = json["age"]
         except KeyError:
-            del self.first_name
-            del self.last_name
-            del self.age
+            pass
