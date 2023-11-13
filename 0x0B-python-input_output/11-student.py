@@ -1,41 +1,50 @@
 #!/usr/bin/python3
-"""Defines a class Student."""
+"""10-student Module
+
+Define a class Student.
+"""
 
 
 class Student:
-    """Represent a student."""
+    """Represent a class Student."""
 
     def __init__(self, first_name, last_name, age):
         """Initialize a new Student.
 
         Args:
-            first_name (str): The first name of the student.
-            last_name (str): The last name of the student.
-            age (int): The age of the student.
+            first_name (str): The first name of the student
+            last_name (str): The last name of the student
+            age (int): The age of the student
         """
+
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
-        """Get a dictionary representation of the Student.
-
-        If attrs is a list of strings, represents only those attributes
-        included in the list.
+        """Retrieves a dictionary representation of a Student instance.
 
         Args:
-            attrs (list): (Optional) The attributes to represent.
+            attrs (list): the list of attributes to be returned.
         """
-        if (type(attrs) == list and
-                all(type(ele) == str for ele in attrs)):
-            return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
-        return self.__dict__
+
+        if not attrs:
+            return self.__dict__
+        filtered_object_dict = {}
+        for attr in attrs:
+            try:
+                filtered_object_dict[attr] = self.__dict__[attr]
+            except KeyError:
+                continue
+        return filtered_object_dict
 
     def reload_from_json(self, json):
-        """Replace all attributes of the Student.
+        """Replaces all attributes of the Student instance.
 
         Args:
-            json (dict): The key/value pairs to replace attributes with.
+            json (dict): the dictionary representation of another instance
         """
-        for k, v in json.items():
-            setattr(self, k, v)
+
+        self.first_name = json["first_name"]
+        self.last_name = json["last_name"]
+        self.age = json["age"]
