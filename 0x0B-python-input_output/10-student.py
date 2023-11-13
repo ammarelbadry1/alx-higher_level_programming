@@ -28,7 +28,7 @@ class Student:
             attrs (list): the list of attributes to be returned.
         """
 
-        if not attrs:
+        if attrs is None:
             return self.__dict__
         filtered_object_dict = {}
         for attr in attrs:

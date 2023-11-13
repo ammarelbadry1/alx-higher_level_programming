@@ -28,7 +28,7 @@ class Student:
             attrs (list): the list of attributes to be returned.
         """
 
-        if not attrs:
+        if attrs is None:
             return self.__dict__
         filtered_object_dict = {}
         for attr in attrs:
@@ -45,6 +45,11 @@ class Student:
             json (dict): the dictionary representation of another instance
         """
 
-        self.first_name = json["first_name"]
-        self.last_name = json["last_name"]
-        self.age = json["age"]
+        try:
+            self.first_name = json["first_name"]
+            self.last_name = json["last_name"]
+            self.age = json["age"]
+        except KeyError:
+            del self.first_name
+            del self.last_name
+            del self.age
