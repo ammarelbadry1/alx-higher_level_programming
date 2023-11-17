@@ -38,9 +38,9 @@ class Square(Rectangle):
     def __str__(self):
         """Print the Square instance in a user friendly way."""
         return "[Square] ({}) {}/{} - {}".format(self.id,
-                                                    self.x,
-                                                    self.y,
-                                                    self.size)
+                                                 self.x,
+                                                 self.y,
+                                                 self.size)
 
     def update(self, *args, **kwargs):
         """Assigns an argument to each attribute of the Square instance.

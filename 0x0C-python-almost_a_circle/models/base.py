@@ -65,13 +65,13 @@ class Base:
         if (not json_string):
             return []
         return json.loads(json_string)
-    
+
     @classmethod
     def create(cls, **dictionary):
         """Returns an instance with all attributes already set.
 
         Args:
-            dictionary (dict): 
+            dictionary (dict): the dictionary representation of an instance
         """
 
         if (not dictionary):
@@ -82,7 +82,7 @@ class Base:
             instance = cls(1, 2, 3, 4)
         instance.update(**dictionary)
         return instance
-    
+
     @classmethod
     def load_from_file(cls):
         """Returns a list of instances."""
