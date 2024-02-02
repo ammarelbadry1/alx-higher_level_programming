@@ -12,7 +12,7 @@ if __name__ == "__main__":
     else:
         q = sys.argv[1]
 
-    response = requests.post("http://0.0.0.0:5000/search_user", data=q)
+    response = requests.post("http://0.0.0.0:5000/search_user", data={"q": q})
 
     try:
         result = response.json()
