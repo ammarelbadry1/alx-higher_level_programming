@@ -1,6 +1,6 @@
 #!./venv/bin/python3
-"""This script adds the State object 'louisiana' to the database
-hbtn_0e_6_usa"""
+"""This script deletes all State objects with a name containing the
+letter 'a' from the database hbtn_0e_6_usa"""
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -14,7 +14,7 @@ if __name__ == "__main__":
     engine = create_engine(uri)
     Session = sessionmaker(bind=engine)
     session = Session()
-    new_state = State(name="Louisiana")
-    session.add(new_state)
+    states_to_delete = session.query(State).filter(State.name.like("%a%"))
+    for obj in states_to_delete:
+        session.delete(obj)
     session.commit()
-    print(new_state.id)

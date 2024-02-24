@@ -1,10 +1,11 @@
 #!./venv/bin/python3
-"""This script adds the State object 'louisiana' to the database
-hbtn_0e_6_usa"""
+"""This script prints all City objects from the database
+hbtn_0e_14_usa"""
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
+from model_city import City
 
 
 if __name__ == "__main__":
@@ -14,7 +15,6 @@ if __name__ == "__main__":
     engine = create_engine(uri)
     Session = sessionmaker(bind=engine)
     session = Session()
-    new_state = State(name="Louisiana")
-    session.add(new_state)
-    session.commit()
-    print(new_state.id)
+    for state, city in (session.query(State, City)
+                        .filter(State.id == City.state_id).all()):
+        print("{}: ({}) {}".format(state.name, city.id, city.name))
