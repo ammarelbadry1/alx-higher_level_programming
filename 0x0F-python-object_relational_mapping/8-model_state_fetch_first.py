@@ -15,7 +15,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
     first_state = session.query(State).first()
-    if len(first_state[:]) == 0:
+    if first_state is None:
         print("Nothing")
     else:
         print("{}: {}".format(first_state.id, first_state.name))
