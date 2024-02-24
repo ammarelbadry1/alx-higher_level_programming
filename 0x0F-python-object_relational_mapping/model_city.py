@@ -1,4 +1,4 @@
-#!./venv/bin/python3
+#!/usr/bin/python3
 """This module contains the class definition of a City"""
 from model_state import Base
 from sqlalchemy import Column, String, Integer

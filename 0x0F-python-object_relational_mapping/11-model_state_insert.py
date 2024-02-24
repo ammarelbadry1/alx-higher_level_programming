@@ -1,4 +1,4 @@
-#!./venv/bin/python3
+#!/usr/bin/python3
 """This script adds the State object 'louisiana' to the database
 hbtn_0e_6_usa"""
 import sys

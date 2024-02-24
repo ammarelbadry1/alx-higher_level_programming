@@ -1,4 +1,4 @@
-#!./venv/bin/python3
+#!/usr/bin/python3
 """This module contains the class definition of a State."""
 from sqlalchemy.orm import declarative_base
 from sqlalchemy import Column, Integer, String
