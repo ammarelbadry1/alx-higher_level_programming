@@ -4,3 +4,4 @@ git-push.bash
 test.py
 main.py
 __pycache__
+*~
